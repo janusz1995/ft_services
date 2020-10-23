@@ -1,5 +1,5 @@
 FROM alpine:latest
-RUN apk update && apk add openssl && apk add openrc \
+RUN apk update && apk upgrade && apk add openssl && apk add openrc \
 	&& apk add openssh && apk add nginx && adduser -D -g 'www' www
 RUN echo "www:drina" | chpasswd
 RUN mkdir /www
@@ -16,5 +16,4 @@ RUN openssl req \
 
 CMD sh start_nginx.sh
 
-EXPOSE 80 443
-#WENTRYPOINT bash start_nginx.sh
+EXPOSE 80 443 22
