@@ -8,5 +8,5 @@ datasources:
     version: 1
     editable: false
     basicAuth: true
-    basicAuthUser: root
-    basicAuthPassword: root
+    basicAuthUser: admin
+    basicAuthPassword: password

@@ -20,19 +20,6 @@ data:
       database="telegraf"
 ---
 apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: influxdb-pvc
-  labels:
-    app: influxdb
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 500Mi
----
-apiVersion: v1
 kind: Service
 metadata:
   name: cip-influxdb
@@ -64,7 +51,7 @@ spec:
     spec:
       containers:
         - name: influxdb-container
-          image: influxdb:latest
+          image: influxdb
           imagePullPolicy: Never
           ports:
             - containerPort: 8086
@@ -93,7 +80,20 @@ spec:
             claimName: influxdb-pvc
         - name: influxdb-config
           configMap:
-          - name: influxdb-config
+            name: influxdb-config
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: influxdb-pvc
+  labels:
+    app: influxdb
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 500Mi
 ---
 apiVersion: v1
 kind: Secret
