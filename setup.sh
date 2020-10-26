@@ -12,6 +12,7 @@ docker build -t wordpress wordpress/
 docker build -t influxdb influxdb/
 docker build -t telegraf telegraf/
 docker build -t grafana grafana/
+docker build -t ftps ftps/
 
 kubectl apply -f mysql/mariadb.yaml
 kubectl apply -f nginx/nginx.yaml
@@ -20,6 +21,7 @@ kubectl apply -f wordpress/wordpress.yaml
 kubectl apply -f influxdb/influxdb.yaml
 kubectl apply -f telegraf/telegraf.yaml
 kubectl apply -f grafana/grafana.yaml
+kubectl apply -f ftps/ftps.yaml
 
 minikube dashboard
 

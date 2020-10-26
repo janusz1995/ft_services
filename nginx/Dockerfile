@@ -1,13 +1,16 @@
 FROM alpine:latest
-RUN apk update && apk upgrade && apk add openssl && apk add openrc \
+RUN apk update && apk upgrade && apk add supervisor && apk add openssl && apk add openrc \
 	&& apk add openssh && apk add nginx && adduser -D -g 'www' www
+
 RUN echo "www:drina" | chpasswd
 RUN mkdir /www
 RUN chown -R www:www /var/lib/nginx
 RUN chown -R www:www /www
+
 COPY nginx.conf /etc/nginx/
 COPY index.html /www/
 COPY start_nginx.sh .
+COPY supervisor.conf /etc/supervisord.conf
 
 RUN openssl req \
 		-newkey rsa:2048 -nodes -keyout local_host.key \
