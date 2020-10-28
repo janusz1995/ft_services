@@ -19,4 +19,4 @@ RUN openssl req \
 
 CMD sh start_nginx.sh
 
-EXPOSE 80 443 22
+EXPOSE 80 443

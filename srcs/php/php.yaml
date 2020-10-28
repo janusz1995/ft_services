@@ -21,9 +21,9 @@ spec:
           imagePullPolicy: Never
           ports:
             - containerPort: 5000
-          env:
-            - name: PMA_HOST
-              value: "cip-mysql"
+#          env:
+#            - name: PMA_HOST
+#              value: "cip-mysql"
 ---
 apiVersion: v1
 kind: Service

@@ -4,24 +4,24 @@ eval $(minikube docker-env)
 minikube addons enable metallb;
 minikube addons enable dashboard;
 
-kubectl apply -f metallb-config.yaml
-docker build -t nginx nginx/
-docker build -t php php/
-docker build -t mariadb mysql/
-docker build -t wordpress wordpress/
-docker build -t influxdb influxdb/
-docker build -t telegraf telegraf/
-docker build -t grafana grafana/
-docker build -t ftps ftps/
+kubectl apply -f srcs/metallb-config.yaml
+docker build -t nginx srcs/nginx/
+docker build -t php srcs/php/
+docker build -t mariadb srcs/mysql/
+docker build -t wordpress srcs/wordpress/
+docker build -t influxdb srcs/influxdb/
+docker build -t telegraf srcs/telegraf/
+docker build -t grafana srcs/grafana/
+docker build -t ftps srcs/ftps/
 
-kubectl apply -f mysql/mariadb.yaml
-kubectl apply -f nginx/nginx.yaml
-kubectl apply -f php/php.yaml
-kubectl apply -f wordpress/wordpress.yaml
-kubectl apply -f influxdb/influxdb.yaml
-kubectl apply -f telegraf/telegraf.yaml
-kubectl apply -f grafana/grafana.yaml
-kubectl apply -f ftps/ftps.yaml
+kubectl apply -f srcs/mysql/mariadb.yaml
+kubectl apply -f srcs/nginx/nginx.yaml
+kubectl apply -f srcs/php/php.yaml
+kubectl apply -f srcs/wordpress/wordpress.yaml
+kubectl apply -f srcs/influxdb/influxdb.yaml
+kubectl apply -f srcs/telegraf/telegraf.yaml
+kubectl apply -f srcs/grafana/grafana.yaml
+kubectl apply -f srcs/ftps/ftps.yaml
 
 minikube dashboard
 

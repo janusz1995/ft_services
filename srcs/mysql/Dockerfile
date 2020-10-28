@@ -5,7 +5,7 @@ COPY my.cnf /etc/
 COPY start_mariadb.sh .
 COPY create_db .
 COPY my_db.sql .
-VOLUME ["/var/lib/mariadb"]
+VOLUME ["/var/lib/mysql"]
 
 EXPOSE 3306
 
