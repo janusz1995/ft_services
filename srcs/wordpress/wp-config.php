@@ -31,6 +31,9 @@ define('DB_PASSWORD', 'password');
 /** MySQL hostname */
 define('DB_HOST', 'cip-mariadb');
 
+define('WP_HOME', 'http://192.168.99.101:5050' );
+
+define('WP_SITEURL', 'http://192.168.99.101:5050' );
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');
 

@@ -1,4 +1,4 @@
-minikube start --vm-driver=virtualbox --cpus=2 --disk-size=5000mb --memory=2000mb
+minikube start --vm-driver=virtualbox --cpus=2 --disk-size="10000mb" --memory="3000mb"
 eval $(minikube docker-env)
 
 minikube addons enable metallb;

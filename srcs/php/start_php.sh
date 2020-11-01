@@ -1,3 +1,9 @@
-#!/bin/sh
+#mkdir /etc/telegraf
+#cp /etc/telegraf.conf /etc/telegraf/telegraf.conf
+#sed -i "s~# database = \"telegraf\"~database = \"phpmyadmin\"~g" /etc/telegraf/telegraf.conf
+#sed -i "s~# urls = \[\"unix:///var/run/influxdb.sock\"\]~urls = \[\"http://influxdb:8086\"\]~g" /etc/telegraf/telegraf.conf
+#telegraf &
 
-php --server 0.0.0.0:5000 --docroot phpmyadmin
+php-fpm7
+nginx -g "daemon off;"
+/usr/bin/supervisord -c /etc/supervisord.conf

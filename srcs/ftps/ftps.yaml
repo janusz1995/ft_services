@@ -43,11 +43,14 @@ metadata:
   name: lb-ftps
   labels:
     app: ftps
+  annotations:
+    metallb.universe.tf/allow-shared-ip: wp
 spec:
+  externalTrafficPolicy: Cluster
   selector:
     app: ftps
   type: LoadBalancer
-  loadBalancerIP: 192.168.99.105
+  loadBalancerIP: 192.168.99.101
   ports:
     - port: 20
       name: ftp-data
